@@ -65,22 +65,9 @@ function onRoute(msg)
 	{
 		return routeIMSI(msg);
 	}
-	if (called.length == 4 || called.length == 3 || called.length == 5 || called.length >= 8 )
-	{
-		return routeTropo(msg);
-	}
+
 	return false;
 }
-
-function routeTropo(msg)
-{
-	Engine.debug(Engine.DebugInfo,"routeTropo " + msg.caller + " -> " + msg.called);
-	var retValue = "sip/sip:" + msg.called + "@" + reg_sip;
-	Engine.debug(Engine.DebugInfo,"routeTropo" + msg.caller + " -> " + msg.called + "(" + retValue + ")");
-	msg.retValue(retValue);
-	return true;
-}
-
 
 function routeIMSI(msg)
 {
