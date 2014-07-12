@@ -37,7 +37,7 @@ function onRoute(msg)
 	if (caller.match(/IMSI/)) {
 		query = "SELECT msisdn FROM register WHERE imsi=" + sqlStr(caller.substr(4));
 		res = rowQuery(query);
-		if (res) { 
+		if (res) {
 			msg.caller = "+" + res.msisdn;
 			msg.callername = "+" + res.msisdn;
 		}
