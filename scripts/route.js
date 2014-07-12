@@ -22,14 +22,14 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#require "bman.js"
+#require "main.js"
 #require "libsql.js"
 
 
 function onRoute(msg)
 {
 	Engine.debug(Engine.DebugInfo,"onRoute " + msg.caller + " -> " + msg.called);
-//	Engine.debug(Engine.DebugInfo,"call.route caller ----" + msg.caller + "----");
+
 	var called = msg.called;
 	var caller = msg.caller;
 
@@ -85,15 +85,11 @@ function routeIMSI(msg)
 	msg.uri = res.location.substr(4);
 	msg.retValue(res.location);
 
-//	Engine.debug(Engine.DebugInfo,"call.route (after) called ----" + msg.called + "----");
-//	Engine.debug(Engine.DebugInfo,"call.route (after) caller ----" + msg.caller + "----");
-	Engine.debug(Engine.DebugInfo,"routeTropo" + msg.caller + " -> " + msg.called + "(" + res.location + ")");
+	Engine.debug(Engine.DebugInfo,"routeTropo" + msg.caller + " -> " + msg.called
+    + "(" + res.location + ")");
 
 	return true;
 }
-
-
-
 
 Engine.debugName("bman_route");
 Message.trackName("bman_route");

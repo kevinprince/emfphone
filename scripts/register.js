@@ -22,7 +22,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#require "bman.js"
+#require "main.js"
 #require "libsql.js"
 
 $ms_attempts= 20;
@@ -63,7 +63,7 @@ function onRegister(msg)
 			Engine.debug(Engine.DebugInfo,query);
 			return true;
 	}
- 
+
 	// IMSI already in use?
 	var res = qres.getResult(0,0);
 	if (!res) {
@@ -124,7 +124,7 @@ function onRegister(msg)
 function randomint(modulus)
 {
 	if (randomint.counter==undefined) {
-	
+
 		var d = new Date();
 		randomint.count = d.getSeconds()*1000 + d.getMilliseconds();
 	}
@@ -206,7 +206,7 @@ function newnumber()
 
 function message(text,imsi,dest)
 {
-	
+
 	var query = "INSERT INTO text_sms(imsi,msisdn,dest,next_try,tries,msg)";
 	query += " VALUES(" + sqlStr(imsi) + ",'6611',"
 		+ sqlStr(dest) + ",NOW()," + sqlNum(sms_attempts) + ","
