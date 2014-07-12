@@ -47,15 +47,18 @@ function onRoute(msg)
 	msg.timeout = 1000*60*call_timer;
 	// TODO: It would be nice to have a warning tone before the cutoff.
 
-	// HACK: Allow the regex routing to handle test tone and echo tests.
-	// ...and camp phone.
-	// ...and emergency services.
-	// This should already be the case due to priority assigned but it's
-	// not happening for some reason.
-	if (called == "600" || called == "601" || called == "1234567" || called == "sos" || called == "110" || called == "112" || called == "113" || called == "114" || called == "911")
-	{
-		return false;
-	}
+  switch(called){
+    case "sos":
+    case "101":
+    case "110":
+    case "112":
+    case "113":
+    case "114":
+    case "911":
+    case "999":
+      return false;
+  }
+
 	// Target address is an MSISDN or an IMSI.
 	// MSISDNs are fixed at 7 digits.
 	if (called.length == 7 || called.match(/IMSI/))
