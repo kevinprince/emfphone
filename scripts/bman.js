@@ -1,4 +1,4 @@
-dbacc = "bman";
+dbacc = "emf";
 
 // The IP of the Tropo gateway for SMS.
 vlr_sip = "10.0.5.121:6061";
@@ -10,4 +10,3 @@ call_timer = 5;
 //my_sip = "184.23.135.50";
 
 reg_sip = "10.0.5.121:6061";
-
