@@ -1,1 +1,15 @@
-###Longton Newville Phone and Telegraph Company
+##Longton Newville Phone and Telegraph Company
+
+This mostly the Yate config files for the network.
+
+They are a fork of the work done by Papa Legba for Burning Man.
+
+###Converting audio files
+
+To create temp TTS files try https://translate.google.com/translate_tts?tl=en&q=""
+
+Save as a MP3 and use [sox](http://sox.sourceforge.net)
+
+Command looks like this:
+
+```sox ~/Desktop/help.mp3 -r 8000 help.gsm```
