@@ -51,6 +51,11 @@ function onRegister(msg)
     return false;
   }
 
+  //if number identifies as IMSI
+  if (msg.number.substr(0,4) == "IMSI")
+    imsi = msg.number.substr(4);
+  }
+
 	var num = sqlStr(msg.number);
 	var loc = sqlStr(msg.data);
 	var imsisql = sqlStr(imsi);
