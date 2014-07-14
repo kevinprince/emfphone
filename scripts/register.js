@@ -197,7 +197,6 @@ function message(text,imsi,dest)
 
 }
 
-Engine.debugName("bman_regist");
 Engine.debugName("register");
 Message.trackName("register");
 Message.install(onRegister,"user.register",80);
