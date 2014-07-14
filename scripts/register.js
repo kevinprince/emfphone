@@ -41,8 +41,6 @@ function onRegister(msg)
 	// TODO: This needs to be updated to deal with the wired phones.
 	// HACK: Give the phone an IMSI for a user name.
 
-	var query = "registration from " + msg.number;
-	Engine.debug(Engine.DebugInfo,query);
 	if (msg.number == "" || msg.data == "")
 		return false;
 	if (msg.number !== undefined) {
