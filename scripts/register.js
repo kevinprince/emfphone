@@ -46,6 +46,11 @@ function onRegister(msg)
     return false;
   }
 
+  //if IMSI is a UK operator drop it
+  if (msg.number.substr(0,3) == "234"){
+    return false;
+  }
+
 	var num = sqlStr(msg.number);
 	var loc = sqlStr(msg.data);
 	var imsisql = sqlStr(imsi);
