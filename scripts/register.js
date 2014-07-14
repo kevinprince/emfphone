@@ -73,32 +73,6 @@ function onRegister(msg)
 	// IMSI already in use?
 	var res = qres.getResult(0,0);
 	if (!res) {
-		// Block AT&T if not from the devkit
-		// if (imsi.match(/^310(030|150|170|280|380|410|560|680|980|990)/))
-		if (msg.ip_host != "10.0.5.112") {
-			if (imsi.match(/^310030/))
-				return false;
-			if (imsi.match(/^310150/))
-				return false;
-			if (imsi.match(/^310170/))
-				return false;
-			if (imsi.match(/^310280/))
-				return false;
-			if (imsi.match(/^310380/))
-				return false;
-			if (imsi.match(/^310410/))
-				return false;
-			if (imsi.match(/^310560/))
-				return false;
-			if (imsi.match(/^310680/))
-				return false;
-			if (imsi.match(/^310980/))
-				return false;
-			if (imsi.match(/^310990/))
-				return false;
-		}
-		else
-			Engine.debug(Engine.DebugInfo,"DEVKIT --------------------------------");
 		// We have a new customer!
 		var num = newnumber();
 		query = "INSERT INTO register (imsi,msisdn,location) VALUES (" + imsisql + "," + sqlStr(num) +"," + loc + ")";
