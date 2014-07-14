@@ -85,12 +85,9 @@ function routeIMSI(msg)
 	msg.uri = res.location.substr(4);
 	msg.retValue(res.location);
 
-	Engine.debug(Engine.DebugInfo,"routeTropo" + msg.caller + " -> " + msg.called
-    + "(" + res.location + ")");
-
 	return true;
 }
 
-Engine.debugName("bman_route");
-Message.trackName("bman_route");
+Engine.debugName("route");
+Message.trackName("route");
 Message.install(onRoute,"call.route",80);
