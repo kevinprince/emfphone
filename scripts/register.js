@@ -41,12 +41,10 @@ function onRegister(msg)
 	// TODO: This needs to be updated to deal with the wired phones.
 	// HACK: Give the phone an IMSI for a user name.
 
-	if (msg.number == "" || msg.data == "")
-		return false;
-	if (msg.number !== undefined) {
-		if (msg.number.substr(0,4) == "IMSI")
-			imsi = msg.number.substr(4);
-	}
+  //no number or data = no registration
+  if (msg.number == "" || msg.data == "" || msg.number == undefined)
+    return false;
+  }
 
 	var num = sqlStr(msg.number);
 	var loc = sqlStr(msg.data);
