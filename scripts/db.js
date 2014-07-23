@@ -32,7 +32,7 @@ function db_client(db_account, db_type){
    };
    db_client.prototype.jtreplace = function(q, a) {
        var list = [];
-       list.push(q.substr(0, q.indexOf('$')), "'" + a + "'", q.substr(q.indexOf('$') + 1, q.length));
+       list.push(q.substr(0, q.indexOf('$')), a, q.substr(q.indexOf('$') + 1, q.length));
        return list.join();
    };
    db_client.prototype.get_array_list = function(q, a)
