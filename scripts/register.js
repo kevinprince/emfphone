@@ -63,7 +63,7 @@ function onRegister(msg)
   location = msg.data;
 
   if (sub.user_exists(username) !== false){
-    sub.update_location(username.sqlEscape(), location.sqlEscape());
+    sub.update_location(username, location);
   } else {
     Engine.debug(Engine.DebugInfo,"register failed - 404 user not found");
     msg.retValue(404);
