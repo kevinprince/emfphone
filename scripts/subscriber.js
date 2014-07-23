@@ -1,8 +1,10 @@
-function subscriber(){
-  db = new db_client('emf', 'mysql');
-}
+function subscriber(){}
 
 subscriber.prototype = new Object;
+
+subscriber.prototype.db = function() {
+  return new db_client('emf', 'mysql');
+};
 
 subscriber.prototype.create = function(id) {
   return this.db.query_insert('INSERT INTO users (username) VALUES($)', [id]);
