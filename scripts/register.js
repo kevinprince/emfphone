@@ -49,16 +49,16 @@ function onRegister(msg)
 
   //if number identifies as IMSI
   if (msg.number.substr(0,4) == "IMSI"){
-    username = sqlEscape(msg.number.substr(4));
+    username = msg.number.substr(4);
   } else {
-    username = sqlEscape(msg.number);
+    username = msg.number;
   }
 
   sub = subscriber.new();
-  location = sqlEscape(msg.data);
+  location = msg.data.sqlEscape();
 
   if (sub.user_exists(username) !== false){
-    sub.update_location(username, location);
+    sub.update_location(username.sqlEscape(), location.sqlEscape());
   } else {
     msg.retValue(404);
     return false;
