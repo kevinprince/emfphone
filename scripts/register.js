@@ -26,7 +26,7 @@
 
 
 /* on every register request
- * 
+ *
  * 1. reject invalid requesrs
  * 2. reject UK mobile subscribers
  * 3. if exists update location else drop user
@@ -56,18 +56,18 @@ function onRegister(msg)
 
   sub = subscriber.new();
   location = sqlEscape(msg.data);
- 
+
   if (sub.user_exists(username) !== false){
     sub.update_location(username, location);
   } else {
     msg.retValue(404);
-    return false
+    return false;
   }
 
   msg.retValue(200);
 	return true;
 
-}  
+}
 
 Engine.debugName("register");
 Message.trackName("register");
