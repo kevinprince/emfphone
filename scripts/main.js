@@ -1,5 +1,8 @@
 #require "db.js"
 
+
+db = new db_client('emf', 'mysql');
+
 dbacc = "emf";
 
 // The IP of the Tropo gateway for SMS.
