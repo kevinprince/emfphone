@@ -36,14 +36,18 @@
 function onRegister(msg)
 {
 
+  Engine.debug(Engine.DebugInfo,"register " + msg.number + " " msg.data);
+
   //no number or data = no registration
   if (msg.number == "" || msg.data == "" || msg.number == undefined){
+    Engine.debug(Engine.DebugInfo,"register failed - 400 incomplete data");
     msg.retValue(400);
     return false;
   }
 
   //if IMSI is a UK operator drop it
   if (msg.number.substr(0,7) == "IMSI234"){
+    Engine.debug(Engine.DebugInfo,"register failed - 403 UK IMSI");
     msg.retValue(403);
     return false;
   }
@@ -61,10 +65,12 @@ function onRegister(msg)
   if (sub.user_exists(username) !== false){
     sub.update_location(username.sqlEscape(), location.sqlEscape());
   } else {
+    Engine.debug(Engine.DebugInfo,"register failed - 404 user not found");
     msg.retValue(404);
     return false;
   }
 
+  Engine.debug(Engine.DebugInfo,"register success - " +username+ " now registered");
   msg.retValue(200);
 	return true;
 
