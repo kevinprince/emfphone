@@ -23,6 +23,7 @@
  */
 
 #require "main.js"
+#require "subscriber.js"
 
 
 /* on every register request
