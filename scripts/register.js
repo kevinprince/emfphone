@@ -36,7 +36,7 @@
 function onRegister(msg)
 {
 
-  Engine.debug(Engine.DebugInfo,"register " + msg.number + " " msg.data);
+  Engine.debug(Engine.DebugInfo,"register " + msg.number + " " + msg.data);
 
   //no number or data = no registration
   if (msg.number == "" || msg.data == "" || msg.number == undefined){
