@@ -1,3 +1,5 @@
+#require "db.js"
+
 dbacc = "emf";
 
 // The IP of the Tropo gateway for SMS.
