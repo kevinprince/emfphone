@@ -59,7 +59,7 @@ function onRegister(msg)
     username = msg.number;
   }
 
-  sub = subscriber.new();
+  sub = new subscriber();
   location = msg.data;
 
   if (sub.user_exists(username) !== false){
