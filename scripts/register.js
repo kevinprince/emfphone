@@ -42,7 +42,7 @@ function onRegister(msg)
   }
 
   //if IMSI is a UK operator drop it
-  if (msg.number.substr(0,3) == "234"){
+  if (msg.number.substr(0,7) == "IMSI234"){
     msg.retValue(403);
     return false;
   }
@@ -55,7 +55,7 @@ function onRegister(msg)
   }
 
   sub = subscriber.new();
-  location = msg.data.sqlEscape();
+  location = msg.data;
 
   if (sub.user_exists(username) !== false){
     sub.update_location(username.sqlEscape(), location.sqlEscape());
